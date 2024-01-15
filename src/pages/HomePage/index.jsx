@@ -18,13 +18,25 @@ export const HomePage = () => {
          getProducts()
    }, [])
 
+   const addcart = (products) => {
+      const noDuplicates = cartList.some((snack) => snack.id === products.id);
+      if (!noDuplicates) {
+         setCartList([...cartList, products]);
+      } else {
+
+      }
+   }
+
+   const removecart = (productid) => {
+      const newcart = cartList.filter(({id}) => id !== productid);
+      setCartList(newcart);
+   }
+
    // const localOrders = localStorage.getItem("@MYREQUESTS")
 
    // useEffect(() => {
    //    localStorage.setItem("@MYREQUESTS", JSON.stringify(allOrders))
    // })
-
-
 
    // feito - useEffect montagem - carrega os produtos da API e joga em productList
    // feito - useEffect atualização - salva os produtos no localStorage (carregar no estado)
@@ -37,8 +49,8 @@ export const HomePage = () => {
       <>
          <Header setVisible={setVisible}/>
          <main>
-            <ProductList productList={productList} />
-            {isVisible ? <CartModal setVisible={setVisible} cartList={cartList} /> : null}
+            <ProductList productList={productList} addcart={addcart} />
+            {isVisible ? <CartModal setVisible={setVisible} cartList={cartList} removecart={removecart}/> : null}
          </main>
       </>
    );

@@ -7,8 +7,9 @@ export const Header = ({setVisible}) => {
 
    return (
       <header>
-         <img src={Logo} alt="Logo Kenzie Burguer" />
-         <div>
+         <div className="container">
+            <img src={Logo} alt="Logo Kenzie Burguer" />
+             <div>
             <button onClick={() => setVisible(true)}>
                 <MdShoppingCart size={21} />
                 <span>0</span>
@@ -23,6 +24,7 @@ export const Header = ({setVisible}) => {
                  <MdSearch size={21} />
                </button>
             </form>
+         </div>
          </div>
       </header>
    );

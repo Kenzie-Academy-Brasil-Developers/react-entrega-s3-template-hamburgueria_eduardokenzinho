@@ -1,4 +1,11 @@
+.sectionmenu {
+    flex-direction: column;
+    align-items: center;
+    gap: 17px; 
+    padding: 0 1rem ;
+}
 .snackmenu {
     display: flex;
+    flex-wrap: wrap;
     gap: 40px;
 }
